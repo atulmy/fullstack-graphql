@@ -1,0 +1,4 @@
+{
+  "graphqlEndpoint": "/api",
+  "port": 3000
+}
