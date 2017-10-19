@@ -1,5 +1,5 @@
 # 🐣 Node Express GraphQL Sequelize React Redux ES6
-
+Simple API build with Express + GraphQL + Sequelize (supports MySQL, Postgres, Sqlite and MSSQL). WebApp build with React + Redux to access the API. Writtten in ES6 using Babel + Webpack. [In Progress]
 
 ## 🎩 Author
 Atul Yadav - [GitHub](https://github.com/atulmy) &bull; [Twitter](https://twitter.com/atulmy)
