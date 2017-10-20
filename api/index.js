@@ -6,20 +6,20 @@ import graphqlHTTP from 'express-graphql'
 import config from './config/config.json'
 import setupLoadModules from './setup/loadModules'
 import setupStartServer from './setup/startServer'
-import schema from './schemas'
+import schema from './schema'
 
 // Create express server
-const apiServer = express()
+const server = express()
 
 // Setup Express App
-setupLoadModules(apiServer)
+setupLoadModules(server)
 
 // API (GraphQL on route `/api`)
-apiServer.use(config.graphqlEndpoint, graphqlHTTP(() => ({
+server.use(config.graphqlEndpoint, graphqlHTTP(() => ({
     schema,
-    graphiql: true,
-    pretty: true
+    graphiql: config.graphql.ide,
+    pretty: config.graphql.pretty
 })))
 
 // Start Server
-setupStartServer(apiServer)
+setupStartServer(server)

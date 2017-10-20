@@ -4,19 +4,19 @@ import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import morgan from 'morgan'
 
-export default function(apiServer) {
+export default function(server) {
     console.info('SETUP - Loading modules...')
 
     // Enable CORS
-    apiServer.use(cors())
+    server.use(cors())
 
     // Request body parser
-    apiServer.use(bodyParser.json())
-    apiServer.use(bodyParser.urlencoded({extended: false}))
+    server.use(bodyParser.json())
+    server.use(bodyParser.urlencoded({extended: false}))
 
     // Request body cookie parser
-    apiServer.use(cookieParser())
+    server.use(cookieParser())
 
     // HTTP logger
-    apiServer.use(morgan('tiny'))
+    server.use(morgan('tiny'))
 }

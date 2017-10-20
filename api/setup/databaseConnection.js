@@ -11,16 +11,18 @@ const databaseConfigEnv = databaseConfig[env]
 // Create new database connection
 const connection = new Sequelize(databaseConfigEnv.database, databaseConfigEnv.username, databaseConfigEnv.password, {
     host: databaseConfigEnv.host,
-    dialect: databaseConfigEnv.dialect
+    dialect: databaseConfigEnv.dialect,
+    logging: false,
+    operatorsAliases: Sequelize.Op
 })
 
 // Test connection
-console.info('SETUP - Connecting to database...')
+console.info('SETUP - Connecting database...')
 
 connection
     .authenticate()
     .then(() => {
-        console.info('INFO - Connection has been established successfully.');
+        console.info('INFO - Database connected.');
     })
     .catch(err => {
         console.error('ERROR - Unable to connect to the database:', err);

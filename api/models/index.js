@@ -2,10 +2,10 @@
 import Sequelize from 'sequelize'
 
 // App Imports
-import connection from '../setup/connection'
+import databaseConnection from '../setup/databaseConnection'
 
 const models = {
-    Thought: connection.import('./thought')
+    Thought: databaseConnection.import('./thought')
 };
 
 Object.keys(models).forEach((modelName) => {
@@ -14,7 +14,7 @@ Object.keys(models).forEach((modelName) => {
     }
 });
 
-models.sequelize = connection;
+models.sequelize = databaseConnection;
 models.Sequelize = Sequelize;
 
 export default models;
