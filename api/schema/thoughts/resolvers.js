@@ -18,3 +18,8 @@ export async function create(parentValue, { name, thought }) {
         thought
     })
 }
+
+// Delete thought
+export async function remove(parentValue, { id }) {
+    return await models.Thought.destroy({ where: { id }})
+}

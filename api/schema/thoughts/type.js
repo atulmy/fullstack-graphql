@@ -1,6 +1,7 @@
 // Imports
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
 
+// Thought type
 const ThoughtType = new GraphQLObjectType({
     name: 'thought',
     description: '...',

@@ -5,6 +5,7 @@ import { GraphQLObjectType, GraphQLInt, GraphQLList } from 'graphql'
 import ThoughtType from './thoughts/type'
 import { getById as thoughtGetById, getAll as thoughtGetAll } from './thoughts/resolvers'
 
+// Query
 const query = new GraphQLObjectType({
     name: 'query',
     description: '...',

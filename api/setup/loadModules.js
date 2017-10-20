@@ -4,6 +4,7 @@ import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import morgan from 'morgan'
 
+// Load express modules
 export default function(server) {
     console.info('SETUP - Loading modules...')
 
