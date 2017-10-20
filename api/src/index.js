@@ -12,8 +12,8 @@ const server = express()
 // Setup load modules
 setupLoadModules(server)
 
-// Setup Load Modules
+// Setup GraphQL
 setupGraphQL(server)
 
-// Start Server
+// Start server
 setupStartServer(server)

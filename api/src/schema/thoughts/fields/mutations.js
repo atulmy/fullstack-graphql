@@ -2,8 +2,8 @@
 import { GraphQLString, GraphQLInt } from 'graphql';
 
 // App Imports
-import ThoughtType from './type'
-import { create, remove } from './resolvers'
+import ThoughtType from '../type'
+import { create, remove } from '../resolvers'
 
 // Thought create
 export const thoughtCreate = {

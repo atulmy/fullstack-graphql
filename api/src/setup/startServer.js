@@ -16,7 +16,7 @@ export default function(server) {
             // Start web server
             server.listen(config.port, (error) => {
                 if(error) {
-                    console.error(`ERROR - Unable to start server.`)
+                    console.error('ERROR - Unable to start server.')
                 } else {
                     console.info(`INFO - Server started on port ${ config.port }.`)
                 }

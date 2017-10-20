@@ -1,9 +1,8 @@
 // Imports
-import { GraphQLObjectType, GraphQLInt, GraphQLList } from 'graphql'
+import { GraphQLObjectType } from 'graphql'
 
 // App Imports
-import ThoughtType from './thoughts/type'
-import { getById as thoughtGetById, getAll as thoughtGetAll } from './thoughts/resolvers'
+import * as thought from './thoughts/fields/query'
 
 // Query
 const query = new GraphQLObjectType({
@@ -11,18 +10,7 @@ const query = new GraphQLObjectType({
     description: '...',
 
     fields: () => ({
-        thought: {
-            type: ThoughtType,
-            args: {
-                id: { type: GraphQLInt }
-            },
-            resolve: thoughtGetById
-        },
-
-        thoughts: {
-            type: new GraphQLList(ThoughtType),
-            resolve: thoughtGetAll
-        }
+        ...thought
     })
 })
 
