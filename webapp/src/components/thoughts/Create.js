@@ -12,12 +12,21 @@ class Create extends Component {
         super(props)
 
         this.state = {
-
+            name: '',
+            thought: ''
         }
+    }
+
+    onChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
     }
 
     submit = (event) => {
         event.preventDefault()
+
+        console.log(this.state)
     }
 
     render() {
@@ -32,15 +41,19 @@ class Create extends Component {
                 <form onSubmit={ this.submit }>
                     <input
                         type="text"
+                        name="name"
                         placeholder="Your name"
                         required="required"
+                        onChange={ this.onChange }
                     />
 
                     <br /><br />
 
                     <textarea
+                        name="thought"
                         placeholder="Your thought"
                         required="required"
+                        onChange={ this.onChange }
                     />
 
                     <br /><br />
