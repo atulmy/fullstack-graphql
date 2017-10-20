@@ -16,7 +16,7 @@ const App = () => (
         <Switch>
             <Route path={ routes.home } component={ Home } exact />
             <Route path={ routes.about } component={ About } />
-            <Route path={ routes.thoughts.list } component={ ThoughtsList } />
+            <Route path={ routes.thoughts.list } component={ ThoughtsList } exact />
             <Route path={ routes.thoughts.create } component={ ThoughtsCreate } />
         </Switch>
     </Layout>

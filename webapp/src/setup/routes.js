@@ -1,6 +1,3 @@
-// Imports
-import axios from 'axios'
-
 // App Imports
 import { APP_URL_API } from './config'
 

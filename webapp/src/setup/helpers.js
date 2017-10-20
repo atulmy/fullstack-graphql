@@ -15,7 +15,7 @@ export function queryBuilder(type = 'query', field, attributes = [], args = [], 
         variables
     }
 
-    console.log(query)
+    // console.log(query)
 
     return query
 }
