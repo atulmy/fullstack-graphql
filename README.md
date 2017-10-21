@@ -5,8 +5,33 @@
 
 Writtten in ES6 using Babel + Webpack.
 
-🚧  [In Progress] 🏗
+## 📝 Features
+- [x] List thoughts
+- [x] Add thought
+- [x] Delete thought
 
+## ▶️ Running
+- Clone repo `git clone git@github.com:atulmy/node-express-graphql-sequelize-react-redux-es6.git graphql`
+- Install NPM modules API `cd api` and `npm install`
+- Install NPM modules Webapp `cd webapp` and `npm install`
+- Modify `/api/src/config/database.json` for database credentials
+- Modify `/api/src/config/config.json` for API port (optional)
+- Modify `/webapp/.env` for webapp port (optional)
+- Run API `cd api` and `npm start`, browse GraphiQL at http://localhost:3000/
+- Run Webapp `cd webapp` and `npm start`, browse webapp at http://localhost:8000/
+
+### Sample API logs
+```
+[nodemon] starting `babel-node src/index.js --presets es2015,stage-2`
+SETUP - Connecting database...
+SETUP - Loading modules...
+SETUP - GraphQL...
+SETUP - Syncing database tables...
+INFO - Database connected.
+INFO - Database sync complete.
+SETUP - Starting server...
+INFO - Server started on port 3000.
+```
 
 ## 🎩 Author
 Atul Yadav - [GitHub](https://github.com/atulmy) &bull; [Twitter](https://twitter.com/atulmy)
