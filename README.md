@@ -3,7 +3,9 @@
 
 **WebApp** build with React + Redux. 
 
-Writtten in ES6 using Babel + Webpack. [In Progress]
+Writtten in ES6 using Babel + Webpack.
+
+🚧  [In Progress] 🏗
 
 
 ## 🎩 Author
