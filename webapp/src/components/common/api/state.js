@@ -6,13 +6,14 @@ export const commonInitialState = {
     menuIsVisible: true,
 
     message: {
-        text: '',
+        text: [],
         open: false
     }
 }
 
 // State
 export default (state = commonInitialState, action) => {
+    console.log(state)
     switch (action.type) {
         case MENU_SHOW:
             return {
@@ -27,10 +28,11 @@ export default (state = commonInitialState, action) => {
             }
 
         case MESSAGE_SHOW:
+            state.message.text.push(action.message)
             return {
                 ...state,
                 message: {
-                    text: action.message,
+                    text: state.message.text,
                     open: true
                 }
             }
@@ -39,8 +41,8 @@ export default (state = commonInitialState, action) => {
             return {
                 ...state,
                 message: {
-                    text: action.message,
-                    open: true
+                    text: [],
+                    open: false
                 }
             }
 

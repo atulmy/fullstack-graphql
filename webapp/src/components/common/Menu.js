@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { routes } from '../../setup/routes'
 
 // Component
-const Header = () => (
+const Menu = () => (
     <ul>
         <li><Link to={ routes.home }>Home</Link></li>
         <li><Link to={ routes.about }>About</Link></li>
@@ -14,4 +14,4 @@ const Header = () => (
     </ul>
 )
 
-export default Header
+export default Menu

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 // App Imports
+// import { someAction } from './api/actions'
 
 // Component
 class DummyComponentRedux extends Component {
@@ -14,6 +15,10 @@ class DummyComponentRedux extends Component {
         this.state = {
 
         }
+    }
+
+    componentDidMount() {
+        // this.props.someAction()
     }
 
     render() {
@@ -27,7 +32,8 @@ class DummyComponentRedux extends Component {
 
 // Component Properties
 DummyComponentRedux.propTypes = {
-    dummyId: PropTypes.number.isRequired
+    dummyId: PropTypes.number.isRequired,
+    // someAction: PropTypes.func.isRequired,
 }
 
 // Component State
@@ -35,4 +41,4 @@ function dummyComponentReduxState(state) {
     return state
 }
 
-export default connect(dummyComponentReduxState, {})(DummyComponentRedux)
+export default connect(dummyComponentReduxState, { /* someAction */ })(DummyComponentRedux)

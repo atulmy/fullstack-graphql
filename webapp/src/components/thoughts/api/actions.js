@@ -43,3 +43,10 @@ export function create(data) {
         return axios.post(routesApi, queryBuilder({ type: 'mutation', operation: 'thoughtCreate', data, fields: ['id'] }))
     }
 }
+
+// Remove thought
+export function remove(data) {
+    return dispatch => {
+        return axios.post(routesApi, queryBuilder({ type: 'mutation', operation: 'thoughtRemove', data, fields: ['id'] }))
+    }
+}

@@ -11,28 +11,14 @@ export function queryBuilder(options) {
     options.data = options.data ? queryDataFormatter(options.data) : []
     options.variables = options.variables ? options.variables : []
 
-    let query = {}
-
-    if(options.type === 'query') {
-        query = {
-            query: `
+    const query = {
+        query: `
             ${ options.type } {
-                ${ options.operation } {
+                ${ options.operation } ${ options.data.length ? `(${ options.data.reduce((dataString, element, i) => `${ dataString }${ i !== 0 ? ',' : '' } ${ element.field }: ${ typeof element.value === 'number' ? element.value : '"'+element.value+'"' }`, '') })` : '' } {
                     ${ options.fields.join(',') }
                 }
             }`,
-            variables: options.variables
-        }
-    } else {
-        query = {
-            query: `
-            ${ options.type } {
-                ${ options.operation } (${ options.data.reduce((dataString, element, i) => `${ dataString }${ i !== 0 ? ',' : '' } ${ element.field }: "${ element.value }"`, '') }) {
-                    ${ options.fields.join(',') }
-                }
-            }`,
-            variables: options.variables
-        }
+        variables: options.variables
     }
 
     console.log(query)

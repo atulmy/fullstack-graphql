@@ -5,8 +5,8 @@ import PropTypes from 'prop-types'
 
 // App Imports
 import { renderIf } from '../../setup/helpers'
-import { menuShow, menuHide } from './api/actions'
-import Header from './Header'
+import { menuShow, menuHide, messageHide } from './api/actions'
+import Menu from './Menu'
 
 // Component
 class Layout extends Component {
@@ -16,10 +16,10 @@ class Layout extends Component {
 
         return(
             <div>
+                {/* Header */}
                 <header>
-                    {/* Header */}
                     { renderIf(this.props.common.menuIsVisible, () => (
-                        <Header />
+                        <Menu />
                     )) }
 
                     {/* Header visible toggle button */}
@@ -34,6 +34,19 @@ class Layout extends Component {
 
                 <hr />
 
+                {/* Message */}
+                { renderIf(this.props.common.message.open, () => (
+                    <div>
+                        { this.props.common.message.text.map((text, i) => (
+                            <p key={ i }><mark>{ text }</mark></p>
+                        )) }
+
+                        <button onClick={ this.props.messageHide }>Hide Messages</button>
+
+                        <hr />
+                    </div>
+                )) }
+
                 {/* Page content */}
                 <section>
                     { children }
@@ -47,7 +60,8 @@ class Layout extends Component {
 Layout.propTypes = {
     common: PropTypes.object.isRequired,
     menuShow: PropTypes.func.isRequired,
-    menuHide: PropTypes.func.isRequired
+    menuHide: PropTypes.func.isRequired,
+    messageHide: PropTypes.func.isRequired
 }
 
 // Component State
@@ -57,4 +71,4 @@ function commonState(state) {
     }
 }
 
-export default connect(commonState, { menuShow, menuHide })(Layout)
+export default connect(commonState, { menuShow, menuHide, messageHide })(Layout)

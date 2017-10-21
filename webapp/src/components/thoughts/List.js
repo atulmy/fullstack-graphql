@@ -8,19 +8,13 @@ import { Link } from 'react-router-dom'
 import { routes } from '../../setup/routes'
 import { getList } from './api/actions'
 import Loading from '../common/Loading'
+import Item from './Item'
 
 // Component
 class List extends Component {
 
     componentDidMount() {
         this.props.getList()
-    }
-
-    remove = (id) => {
-        let check = window.confirm('Are you sure you want to delete this thought?')
-        if(check) {
-            console.log(id)
-        }
     }
 
     render() {
@@ -38,11 +32,19 @@ class List extends Component {
                         ?
                     <Loading message="loading thoughts..." />
                         :
-                    <ul>
-                        { this.props.thoughts.list.map(({ id, thought, name }) => (
-                            <li key={ id }>{ thought } - { name } <button onClick={ this.remove.bind(this, id) }>X</button></li>
-                        )) }
-                    </ul>
+                    (
+                        this.props.thoughts.list.length > 0
+                            ?
+                        <ul>
+                            { this.props.thoughts.list.map(thought => (
+                                <li key={ thought.id }>
+                                    <Item thought={ thought } />
+                                </li>
+                            )) }
+                        </ul>
+                            :
+                        <p>No thoughts to show.</p>
+                    )
                 }
             </div>
         )
