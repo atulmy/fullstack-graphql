@@ -1,9 +1,12 @@
 // Imports
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 // App Imports
 import { routes } from '../../setup/routes'
+import { create } from './api/actions'
 
 // Component
 class Create extends Component {
@@ -26,7 +29,7 @@ class Create extends Component {
     submit = (event) => {
         event.preventDefault()
 
-        console.log(this.state)
+        this.props.create(this.state)
     }
 
     render() {
@@ -38,7 +41,9 @@ class Create extends Component {
                     <Link to={ routes.thoughts.list }>Cancel</Link>
                 </p>
 
+                {/* Form */}
                 <form onSubmit={ this.submit }>
+                    {/* Name */}
                     <input
                         type="text"
                         name="name"
@@ -49,6 +54,7 @@ class Create extends Component {
 
                     <br /><br />
 
+                    {/* Thought */}
                     <textarea
                         name="thought"
                         placeholder="Your thought"
@@ -58,6 +64,7 @@ class Create extends Component {
 
                     <br /><br />
 
+                    {/* Submit */}
                     <button type="submit">Save</button>
                 </form>
             </div>
@@ -65,4 +72,9 @@ class Create extends Component {
     }
 }
 
-export default Create
+// Component Properties
+Create.propTypes = {
+    create: PropTypes.func.isRequired,
+}
+
+export default connect(null, { create })(Create)

@@ -12,15 +12,15 @@ export const THOUGHTS_GET_LIST_FAILURE = 'THOUGHTS/GET_LIST_FAILURE'
 
 // Actions
 
-// List
-export function thoughtsGetList(isLoading = true) {
+// Get list of thoughts
+export function getList(isLoading = true) {
     return dispatch => {
         dispatch({
             type: THOUGHTS_GET_LIST_REQUEST,
             isLoading
         })
 
-        return axios.post(routesApi, queryBuilder('query', 'thoughts', ['id', 'name', 'thought']))
+        return axios.post(routesApi, queryBuilder({ type: 'query', operation: 'thoughts', fields: ['id', 'name', 'thought'] }))
             .then((response) => {
                 dispatch({
                     type: THOUGHTS_GET_LIST_RESPONSE,
@@ -34,5 +34,12 @@ export function thoughtsGetList(isLoading = true) {
                     error: error
                 })
             })
+    }
+}
+
+// Create thought
+export function create(data) {
+    return dispatch => {
+        return axios.post(routesApi, queryBuilder({ type: 'mutation', operation: 'thoughtCreate', data, fields: ['id'] }))
     }
 }

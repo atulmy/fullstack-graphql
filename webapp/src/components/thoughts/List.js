@@ -5,15 +5,15 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 // App Imports
-import { thoughtsGetList } from './api/actions'
 import { routes } from '../../setup/routes'
+import { getList } from './api/actions'
 import Loading from '../common/Loading'
 
 // Component
 class List extends Component {
 
     componentDidMount() {
-        this.props.thoughtsGetList()
+        this.props.getList()
     }
 
     remove = (id) => {
@@ -32,6 +32,7 @@ class List extends Component {
                     <Link to={ routes.thoughts.create }>Create</Link>
                 </p>
 
+                {/* List thoughts */}
                 {
                     this.props.thoughts.isLoading
                         ?
@@ -51,7 +52,7 @@ class List extends Component {
 // Component Properties
 List.propTypes = {
     thoughts: PropTypes.object.isRequired,
-    thoughtsGetList: PropTypes.func.isRequired,
+    getList: PropTypes.func.isRequired,
 }
 
 // Component State
@@ -61,4 +62,4 @@ function thoughtsState(state) {
     }
 }
 
-export default connect(thoughtsState, { thoughtsGetList })(List)
+export default connect(thoughtsState, { getList })(List)
