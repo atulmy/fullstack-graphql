@@ -1,4 +1,8 @@
-# Fullstack GraphQL - Simple Demo Application
+![logos](http://atulmy.com/atulmy.com/attachments/images/dev-logos.png)
+
+# Fullstack GraphQL
+
+Simple Demo Application
 
 **API** build with Node + Express + GraphQL + Sequelize (supports MySQL, Postgres, Sqlite and MSSQL). 
 
@@ -33,6 +37,9 @@ INFO - Database sync complete.
 SETUP - Starting server...
 INFO - Server started on port 3000.
 ```
+
+## 📸 Screenshots
+![screenshot](http://atulmy.com/atulmy.com/attachments/images/fullstack-graphql.gif)
 
 ## 🎩 Author
 Atul Yadav - [GitHub](https://github.com/atulmy) &bull; [Twitter](https://twitter.com/atulmy)
