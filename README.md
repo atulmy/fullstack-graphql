@@ -1,3 +1,5 @@
+![logos](http://atulmy.com/atulmy.com/attachments/images/dev-logos.png)
+
 # Fullstack GraphQL - Simple Demo Application
 
 **API** build with Node + Express + GraphQL + Sequelize (supports MySQL, Postgres, Sqlite and MSSQL). 
