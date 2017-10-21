@@ -34,6 +34,9 @@ SETUP - Starting server...
 INFO - Server started on port 3000.
 ```
 
+## 📸 Screenshots
+![screenshot](http://atulmy.com/atulmy.com/attachments/images/fullstack-graphql.gif)
+
 ## 🎩 Author
 Atul Yadav - [GitHub](https://github.com/atulmy) &bull; [Twitter](https://twitter.com/atulmy)
 
