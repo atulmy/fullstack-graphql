@@ -1,5 +1,6 @@
-# Node Express GraphQL Sequelize React Redux ES6 - Simple Demo Application
-**API** build with Express + GraphQL + Sequelize (supports MySQL, Postgres, Sqlite and MSSQL). 
+# Fullstack GraphQL - Simple Demo Application
+
+**API** build with Node + Express + GraphQL + Sequelize (supports MySQL, Postgres, Sqlite and MSSQL). 
 
 **WebApp** build with React + Redux. 
 
@@ -11,7 +12,7 @@ Writtten in ES6 using Babel + Webpack.
 - [x] Delete thought
 
 ## ▶️ Running
-- Clone repo `git clone git@github.com:atulmy/node-express-graphql-sequelize-react-redux-es6.git graphql`
+- Clone repo `git clone git@github.com:atulmy/fullstack-graphql.git fullstack-graphql`
 - Install NPM modules API `cd api` and `npm install`
 - Install NPM modules Webapp `cd webapp` and `npm install`
 - Modify `/api/src/config/database.json` for database credentials
