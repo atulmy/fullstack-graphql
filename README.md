@@ -4,9 +4,9 @@
 
 Simple Demo Application
 
-**API** build with Node + Express + GraphQL + Sequelize (supports MySQL, Postgres, Sqlite and MSSQL). 
+**API** built with Node + Express + GraphQL + Sequelize (supports MySQL, Postgres, Sqlite and MSSQL). 
 
-**WebApp** build with React + Redux. 
+**WebApp** built with React + Redux. 
 
 Writtten in ES6 using Babel + Webpack.
 
