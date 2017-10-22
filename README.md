@@ -71,7 +71,9 @@ INFO - Server started on port 3000.
 - Adding new Module (Eg: Users):
   - Copy `/api/src/models/thought.js` to `/api/src/models/user.js` and modify the file for table name and respective fields
   - Add an entry to the `models` object in `/api/src/models/index.js`
-  - Copy `/api/src/schema/thoughts` to `api/src/schema/users` and modify `type.js`, `resolvers.js` and `fields/mutations.js` and `fields/query.js`
+  - Copy `/api/src/schema/thoughts` to `/api/src/schema/users` and modify `type.js`, `resolvers.js` and `fields/query.js` and `fields/mutations.js`
+  - Import `/api/src/schema/users/fields/query.js` in `/api/src/schema/query.js`
+  - Import `/api/src/schema/users/fields/mutations.js` in `/api/src/schema/mutations.js`
 
 ### Webapp
 - Adding new Module (Eg: Users):
