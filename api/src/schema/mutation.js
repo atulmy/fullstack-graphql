@@ -1,5 +1,5 @@
 // Imports
-import { GraphQLObjectType } from 'graphql';
+import { GraphQLObjectType } from 'graphql'
 
 // App Imports
 import * as thought from './thoughts/fields/mutations'
@@ -12,6 +12,6 @@ const mutation = new GraphQLObjectType({
     fields: {
         ...thought
     }
-});
+})
 
-export default mutation;
+export default mutation

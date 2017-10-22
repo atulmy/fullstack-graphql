@@ -1,3 +1,5 @@
+// Helpers
+
 // Render element or component by provided condition
 export function renderIf(condition, renderFn) {
     return condition ? renderFn() : null
@@ -14,7 +16,7 @@ export function queryBuilder(options) {
     const query = {
         query: `
             ${ options.type } {
-                ${ options.operation } ${ options.data.length ? `(${ options.data.reduce((dataString, element, i) => `${ dataString }${ i !== 0 ? ',' : '' } ${ element.field }: ${ typeof element.value === 'number' ? element.value : '"'+element.value+'"' }`, '') })` : '' } {
+                ${ options.operation } ${ options.data.length ? `(${ options.data.reduce((dataString, element, i) => `${ dataString }${ i !== 0 ? ',' : '' } ${ element.field }: ${ typeof element.value === 'number' ? element.value : '"'+element.value.replace(/"/g, '\\"')+'"' }`, '') })` : '' } {
                     ${ options.fields.join(',') }
                 }
             }`,
@@ -26,6 +28,7 @@ export function queryBuilder(options) {
     return query
 }
 
+// Query Data formatter [array to (key: value, ...) eg: getThoughts(id: 1, user: 2)]
 export function queryDataFormatter(data = null) {
     let dataFormatted = []
 

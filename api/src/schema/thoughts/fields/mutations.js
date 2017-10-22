@@ -1,5 +1,5 @@
 // Imports
-import { GraphQLString, GraphQLInt } from 'graphql';
+import { GraphQLString, GraphQLInt } from 'graphql'
 
 // App Imports
 import ThoughtType from '../type'
