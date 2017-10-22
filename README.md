@@ -86,6 +86,130 @@ INFO - Server started on port 3000.
   - Add a new entry to `routes` object in `/webapp/src/setup/routes.js` (eg `user: { list: '/list' }`)
   - Edit `/webapp/src/components/App.js` and add the route entry
   
+## Sample GraphQL Queries
+These queries are generated on client side using `queryBuilder()` helper defined in `/webapp/src/setup/helpers.js`
+
+<table width="100%" style="width: 100%">
+    <tbody>
+        <tr valign="top">
+            <td width="50%" style="width: 50%">
+                <p>Query - Get List</p>
+                <pre>
+query {
+  thoughts {
+	id,
+	name,
+	thought
+  }
+}
+                </pre>
+            </td>
+            <td width="50%" style="width: 50%">
+                <p>Response</p>
+                <pre>
+{
+  "data": {
+    "thoughts": [
+      {
+        "id": 1,
+        "name": "Arya Stark",
+        "thought": "A girl has no name",
+        "createdAt": "Sat Oct 21 2017 15:53:05 GMT+0530 (IST)"
+      },
+      {
+        "id": 2,
+        "name": "Jon Snow",
+        "thought": "I know nothing",
+        "createdAt": "Sat Oct 21 2017 15:55:00 GMT+0530 (IST)"
+      }
+    ]
+  }
+}
+                </pre>
+            </td>
+        </tr>
+        <tr></tr>
+        <tr valign="top">
+            <td>
+                <p>Query - Get List by Param</p>
+                <pre>
+query {
+  thought(id: 1) {
+	id,
+	name,
+	thought
+  }
+}
+                </pre>
+            </td>
+            <td>
+                <p>Response</p>
+                <pre>
+{
+  "data": {
+    "thought": {
+      "id": 1,
+      "name": "Arya",
+      "thought": "A girl has no name"
+    }
+  }
+}
+                </pre>
+            </td>
+        </tr>
+        <tr></tr>
+        <tr valign="top">
+            <td>
+                <p>Mutation - Create</p>
+                <pre>
+mutation {
+  thoughtCreate(name: "Tyrion Lannister", thought:"I drink and I know things") {
+    id
+  }
+}
+                </pre>
+            </td>
+            <td>
+                <p>Response</p>
+                <pre>
+{
+  "data": {
+    "thoughtCreate": {
+      "id": 3
+    }
+  }
+}
+                </pre>
+            </td>
+        </tr>
+        <tr></tr>
+        <tr valign="top">
+            <td>
+                <p>Mutation - Remove</p>
+                <pre>
+mutation {
+  thoughtRemove(id: 3) {
+	id
+  }
+}
+                </pre>
+            </td>
+            <td>
+                <p>Response</p>
+                <pre>
+{
+  "data": {
+    "thoughtRemove": {
+      "id": null
+    }
+  }
+}
+                </pre>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
 ## 🎩 Author
 Atul Yadav - [GitHub](https://github.com/atulmy) &bull; [Twitter](https://twitter.com/atulmy)
 
