@@ -97,9 +97,9 @@ These queries are generated on client side using `queryBuilder()` helper defined
                 <pre>
 query {
   thoughts {
-	id,
-	name,
-	thought
+    id,
+    name,
+    thought
   }
 }
                 </pre>
@@ -135,9 +135,9 @@ query {
                 <pre>
 query {
   thought(id: 1) {
-	id,
-	name,
-	thought
+    id,
+    name,
+    thought
   }
 }
                 </pre>
@@ -189,7 +189,7 @@ mutation {
                 <pre>
 mutation {
   thoughtRemove(id: 3) {
-	id
+    id
   }
 }
                 </pre>
