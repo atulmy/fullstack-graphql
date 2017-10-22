@@ -8,7 +8,7 @@ Simple Demo Application
 
 **WebApp** built with React + Redux. 
 
-Writtten in ES6 using Babel + Webpack.
+Written in ES6 using Babel + Webpack.
 
 ## 📝 Features
 - [x] List thoughts
@@ -66,7 +66,7 @@ INFO - Server started on port 3000.
       ├── .gitignore
       └── README.md
 
-## Guides
+## 📘 Guides
 ### API
 - Adding new Module (Eg: Users):
   - Copy `/api/src/models/thought.js` to `/api/src/models/user.js` and modify the file for table name and respective fields
