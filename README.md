@@ -163,7 +163,10 @@ query {
                 <p>Mutation - Create</p>
                 <pre>
 mutation {
-  thoughtCreate(name: "Tyrion Lannister", thought:"I drink and I know things") {
+  thoughtCreate(
+    name: "Tyrion Lannister", 
+    thought:"I drink and I know things"
+  ) {
     id
   }
 }
