@@ -41,6 +41,51 @@ INFO - Server started on port 3000.
 ## 📸 Screenshots
 ![screenshot](http://atulmy.com/atulmy.com/attachments/images/fullstack-graphql.gif)
 
+## 🏗 Core Structure
+    fullstack-graphql
+      ├── api (api.example.com)
+      │   ├── src
+      │   │   ├── config
+      │   │   ├── models
+      │   │   ├── schema
+      │   │   ├── setup
+      │   │   └── index.js
+      │   │
+      │   └── package.json
+      │
+      ├── webapp (example.com)
+      │   ├── public
+      │   ├── src
+      │   │   ├── components
+      │   │   ├── setup
+      │   │   └── index.js
+      │   │
+      │   ├── .env
+      │   └── package.json
+      │
+      ├── .gitignore
+      └── README.md
+
+## Guides
+### API
+- Adding new Module (Eg: Users):
+  - Copy `/api/src/models/thought.js` to `/api/src/models/user.js` and modify the file for table name and respective fields
+  - Add an entry to the `models` object in `/api/src/models/index.js`
+  - Copy `/api/src/schema/thoughts` to `api/src/schema/users` and modify `type.js`, `resolvers.js` and `fields/mutations.js` and `fields/query.js`
+
+### Webapp
+- Adding new Module (Eg: Users):
+  - Create folder `users` under `/webapp/src/components/`
+  - Create your Container and Resusable components under `/webapp/src/components/users`
+  - Create `api` folder under `/webapp/src/components/users`
+  - Add `actions.js` where all your Redux Action Types and Actions will reside (refer `/webapp/src/components/thoughts/api/actions.js`)
+  - Add `state.js` where all your respective Reducers will recide (refer `/webapp/src/components/thoughts/api/state.js`)
+  - Import the module state in `/webapp/src/setup/store.js` to make it avaliable to the app
+  - Encapsulate all your User related code in `/webapp/src/components/users`
+- Adding new Route (Eg: `/users`):
+  - Add a new entry to `routes` object in `/webapp/src/setup/routes.js` (eg `user: { list: '/list' }`)
+  - Edit `/webapp/src/components/App.js` and add the route entry
+  
 ## 🎩 Author
 Atul Yadav - [GitHub](https://github.com/atulmy) &bull; [Twitter](https://twitter.com/atulmy)
 
