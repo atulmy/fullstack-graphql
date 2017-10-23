@@ -9,6 +9,9 @@ import { queryBuilder } from '../../../setup/helpers'
 export const THOUGHTS_GET_LIST_REQUEST = 'THOUGHTS/GET_LIST_REQUEST'
 export const THOUGHTS_GET_LIST_RESPONSE = 'THOUGHTS/GET_LIST_RESPONSE'
 export const THOUGHTS_GET_LIST_FAILURE = 'THOUGHTS/GET_LIST_FAILURE'
+export const THOUGHTS_GET_REQUEST = 'THOUGHTS/GET_REQUEST'
+export const THOUGHTS_GET_RESPONSE = 'THOUGHTS/GET_RESPONSE'
+export const THOUGHTS_GET_FAILURE = 'THOUGHTS/GET_FAILURE'
 
 // Actions
 
@@ -31,6 +34,31 @@ export function getList(isLoading = true) {
             .catch((error) => {
                 dispatch({
                     type: THOUGHTS_GET_LIST_FAILURE,
+                    error: error
+                })
+            })
+    }
+}
+
+// Get single thought
+export function get(id, isLoading = true) {
+    return dispatch => {
+        dispatch({
+            type: THOUGHTS_GET_REQUEST,
+            isLoading
+        })
+
+        return axios.post(routesApi, queryBuilder({ type: 'query', operation: 'thought', data: { id: parseInt(id, 10) }, fields: ['id', 'name', 'thought'] }))
+            .then((response) => {
+                dispatch({
+                    type: THOUGHTS_GET_RESPONSE,
+                    error: null,
+                    item: response.data.data.thought
+                })
+            })
+            .catch((error) => {
+                dispatch({
+                    type: THOUGHTS_GET_FAILURE,
                     error: error
                 })
             })

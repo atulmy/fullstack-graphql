@@ -14,6 +14,7 @@ Written in ES6 using Babel + Webpack.
 - [x] List thoughts
 - [x] Add thought
 - [x] Delete thought
+- [x] View single thought
 
 ## ▶️ Running
 - Clone repo `git clone git@github.com:atulmy/fullstack-graphql.git fullstack-graphql`
@@ -39,7 +40,9 @@ INFO - Server started on port 3000.
 ```
 
 ## 📸 Screenshots
-![screenshot](http://atulmy.com/atulmy.com/attachments/images/fullstack-graphql.gif)
+![screenshot](http://atulmy.com/atulmy.com/attachments/images/fullstack-graphql.gif?v=0.1)
+
+Video: [MOV](http://atulmy.com/atulmy.com/attachments/images/fullstack-graphql.mov)
 
 ## 🏗 Core Structure
     fullstack-graphql
@@ -115,14 +118,12 @@ query {
       {
         "id": 1,
         "name": "Arya Stark",
-        "thought": "A girl has no name",
-        "createdAt": "Sat Oct 21 2017 15:53:05 GMT+0530 (IST)"
+        "thought": "A girl has no name"
       },
       {
         "id": 2,
         "name": "Jon Snow",
-        "thought": "I know nothing",
-        "createdAt": "Sat Oct 21 2017 15:55:00 GMT+0530 (IST)"
+        "thought": "I know nothing"
       }
     ]
   }

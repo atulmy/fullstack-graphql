@@ -10,7 +10,11 @@ export const routes = {
     thoughts: {
         list: '/thoughts',
 
-        create: '/thoughts/create'
+        create: '/thoughts/create',
+
+        view: (id) => {
+            return `/thought/${ id }`
+        }
     },
 }
 

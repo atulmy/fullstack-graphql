@@ -2,21 +2,15 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 // App Imports
+import { routes } from '../../setup/routes'
 import { remove, getList } from './api/actions'
 import { messageShow, messageHide } from '../common/api/actions'
 
 // Component
 class Item extends Component {
-
-    constructor(props) {
-        super(props)
-
-        this.state = {
-
-        }
-    }
 
     remove = (id) => {
         let check = window.confirm('Are you sure you want to delete this thought?')
@@ -45,7 +39,13 @@ class Item extends Component {
             <div>
                 { thought } - { name }
 
-                <button onClick={ this.remove.bind(this, id) }>X</button>
+                &nbsp;&nbsp;
+
+                <Link to={ routes.thoughts.view(id) }><button>View</button></Link>
+
+                &nbsp;
+
+                <button onClick={ this.remove.bind(this, id) }>Delete</button>
             </div>
         )
     }

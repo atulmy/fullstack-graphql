@@ -35,7 +35,7 @@ function queryDataFormatter(data) {
     return dataFormatted.length ? `(${ dataFormatted.reduce((dataString, element, i) => `${ dataString }${ i !== 0 ? ',' : '' } ${ element.field }: ${ typeof element.value === 'number' ? element.value : '"'+element.value.replace(/"/g, '\\"')+'"' }`, '') })` : ''
 }
 
-// Private - Query Data formatter [object to array [{ key: value }, { key: value } ...]
+// Private - Query Data transform [object to array [{ key: value }, { key: value } ...]
 function queryDataTransform(data = null) {
     let dataFormatted = []
 
