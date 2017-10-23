@@ -133,7 +133,7 @@ query {
         <tr></tr>
         <tr valign="top">
             <td>
-                <p>Query - Get List by Param</p>
+                <p>Query - Get by Param</p>
                 <pre>
 query {
   thought(id: 1) {

@@ -13,7 +13,6 @@ export const commonInitialState = {
 
 // State
 export default (state = commonInitialState, action) => {
-    console.log(state)
     switch (action.type) {
         case MENU_SHOW:
             return {
