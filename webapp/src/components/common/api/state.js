@@ -27,11 +27,10 @@ export default (state = commonInitialState, action) => {
             }
 
         case MESSAGE_SHOW:
-            state.message.text.push(action.message)
             return {
                 ...state,
                 message: {
-                    text: state.message.text,
+                    text: [...state.message.text, action.message],
                     open: true
                 }
             }
