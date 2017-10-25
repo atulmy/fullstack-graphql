@@ -218,6 +218,7 @@ mutation {
 
 ## 🎩 Author
 Atul Yadav - [GitHub](https://github.com/atulmy) &bull; [Twitter](https://twitter.com/atulmy)
+Nattatorn Yucharoen - [GitHub](https://github.com/nattatorn-dev)
 
 ## 📜 License
 Copyright (c) 2017 Atul Yadav http://github.com/atulmy
