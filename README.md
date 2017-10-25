@@ -216,7 +216,7 @@ mutation {
     </tbody>
 </table>
 
-## 🎩 Author
+## 🎩 Authors
 Atul Yadav - [GitHub](https://github.com/atulmy) &bull; [Twitter](https://twitter.com/atulmy)
 
 Nattatorn Yucharoen - [GitHub](https://github.com/nattatorn-dev)
