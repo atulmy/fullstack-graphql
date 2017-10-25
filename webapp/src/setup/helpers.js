@@ -37,16 +37,10 @@ function queryDataFormatter(data) {
 
 // Private - Query Data transform [object to array [{ key: value }, { key: value } ...]
 function queryDataTransform(data = null) {
-    let dataFormatted = []
-
-    if(Object.keys(data).length) {
-        Object.keys(data).forEach(function (key) {
-            dataFormatted.push({
-                field: key,
-                value: data[key]
-            })
-        })
-    }
-
-    return dataFormatted
+    return Object.keys(data).length
+      ? Object.keys(data).map(key => ({
+            field: key,
+            value: data[key]
+        }))
+      : []
 }
