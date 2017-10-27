@@ -10,17 +10,17 @@ export function queryBuilder(options) {
     options.type = options.type ? options.type : 'query'
     options.operation = options.operation ? options.operation : ''
     options.fields = options.fields ? options.fields : []
-    options.data = options.data ? options.data : []
-    options.variables = options.variables ? options.variables : []
+    options.data = options.data ? options.data : {}
+    options.variables = options.variables ? options.variables : {}
 
     const query = {
         query: `
-            ${ options.type } {
-                ${ options.operation } ${ queryDataFormatter(options.data) } {
+            ${ options.type } ${ queryDataArgumentAndTypeMap(options.data) } {
+                ${ options.operation } ${ queryDataNameAndArgumentMap(options.data) } {
                     ${ options.fields.join(',') }
                 }
             }`,
-        variables: options.variables
+        variables: Object.assign(options.data, options.variables)
     }
 
     console.log(query)
@@ -28,19 +28,26 @@ export function queryBuilder(options) {
     return query
 }
 
-// Private - Query Data [array to string (key: value, ...) eg: getThoughts(id: 1, user: 2)]
-function queryDataFormatter(data) {
-    const dataFormatted = queryDataTransform(data)
-
-    return dataFormatted.length ? `(${ dataFormatted.reduce((dataString, element, i) => `${ dataString }${ i !== 0 ? ',' : '' } ${ element.field }: ${ typeof element.value === 'number' ? element.value : '"'+element.value.replace(/"/g, '\\"')+'"' }`, '') })` : ''
+// Private - Convert object to name and argument map eg: (id: $id)
+function queryDataNameAndArgumentMap(data) {
+    return Object.keys(data).length ? `(${ Object.keys(data).reduce((dataString, key, i) => `${ dataString }${ i !== 0 ? ', ' : '' }${ key }: $${ key }`, '' ) })` : ''
 }
 
-// Private - Query Data transform [object to array [{ key: value }, { key: value } ...]
-function queryDataTransform(data = null) {
-    return Object.keys(data).length
-      ? Object.keys(data).map(key => ({
-            field: key,
-            value: data[key]
-        }))
-      : []
+// Private - Convert object to argument and type map eg: ($id: Int)
+function queryDataArgumentAndTypeMap(data) {
+    return Object.keys(data).length ? `(${ Object.keys(data).reduce((dataString, key, i) => `${ dataString }${ i !== 0 ? ', ' : '' }$${ key }: ${ queryDataType(data[key]) }`, '') })` : ''
 }
+
+// Private - Get GraphQL equivalent type of data passed (String, Int, Float, Boolean)
+function queryDataType(data) {
+    switch(typeof data) {
+        case 'boolean':
+            return 'Boolean'
+        case 'number':
+            return (data % 1 === 0) ? 'Int' : 'Float'
+        case 'string':
+        default:
+            return 'String'
+    }
+}
+
