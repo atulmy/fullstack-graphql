@@ -216,6 +216,13 @@ mutation {
     </tbody>
 </table>
 
+## 💬 Community Reviews
+Facebook Groups:
+[NodeJS](https://www.facebook.com/groups/359999434098189/permalink/1373482582749864/) &bull; [ReactJS](https://www.facebook.com/groups/228321510706889/permalink/676529865886049) &bull; [GraphQL](https://www.facebook.com/groups/graphql.community/permalink/1262506487188601)
+
+Reddit:
+[NodeJS](https://www.reddit.com/r/node/comments/7965fy/simple_fullstack_graphql_application_built_with/) &bull; [ReactJS](https://www.reddit.com/r/reactjs/comments/78mtln/simple_fullstack_graphql_application_with_react/) &bull; [GraphQL](https://www.reddit.com/r/graphql/comments/786vpj/simple_fullstack_graphql_application/)
+
 ## 🎩 Authors
 Atul Yadav - [GitHub](https://github.com/atulmy) &bull; [Twitter](https://twitter.com/atulmy)
 
