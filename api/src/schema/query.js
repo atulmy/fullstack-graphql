@@ -1,17 +1,17 @@
 // Imports
-import { GraphQLObjectType } from 'graphql'
+import {GraphQLObjectType} from 'graphql'
 
 // App Imports
 import * as thought from './thoughts/fields/query'
 
 // Query
 const query = new GraphQLObjectType({
-    name: 'query',
-    description: '...',
+  name: 'query',
+  description: '...',
 
-    fields: () => ({
-        ...thought
-    })
+  fields: () => ({
+    ...thought
+  })
 })
 
 export default query

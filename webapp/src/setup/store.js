@@ -1,5 +1,5 @@
 // Imports
-import { createStore, combineReducers, applyMiddleware } from 'redux'
+import {createStore, combineReducers, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 
 // App Imports
@@ -8,8 +8,8 @@ import * as thoughts from '../components/thoughts/api/state'
 
 // Root Reducer
 const rootReducer = combineReducers({
-    common,
-    ...thoughts
+  common,
+  ...thoughts
 })
 
 // Store

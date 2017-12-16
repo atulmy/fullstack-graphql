@@ -1,102 +1,101 @@
 // Imports
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
 // App Imports
-import { routes } from '../../setup/routes'
-import { create } from './api/actions'
-import { messageShow, messageHide } from '../common/api/actions'
+import {routes} from '../../setup/routes'
+import {create} from './api/actions'
+import {messageShow, messageHide} from '../common/api/actions'
 
 // Component
 class Create extends Component {
 
-    constructor(props) {
-        super(props)
+  onChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+  submit = (event) => {
+    event.preventDefault()
 
-        this.state = {
-            name: '',
-            thought: ''
-        }
-    }
+    // Hide old messages
+    this.props.messageHide()
 
-    onChange = (event) => {
+    this.props.messageShow('Creating thought, please wait...')
+
+    // Call API
+    this.props.create(this.state)
+      .then(response => {
         this.setState({
-            [event.target.name]: event.target.value
+          name: '',
+          thought: '',
         })
+
+        this.props.messageShow('Thought created successfully.')
+      })
+      .catch(error => {
+        this.props.messageShow('Error creating thought. Please try again.')
+      })
+  }
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      name: '',
+      thought: ''
     }
+  }
 
-    submit = (event) => {
-        event.preventDefault()
+  render() {
+    return (
+      <div>
+        <h1>Thought Create</h1>
 
-        // Hide old messages
-        this.props.messageHide()
+        <p>
+          <Link to={routes.thoughts.list}>Back</Link>
+        </p>
 
-        this.props.messageShow('Creating thought, please wait...')
+        {/* Form */}
+        <form onSubmit={this.submit}>
+          {/* Name */}
+          <input
+            type="text"
+            name="name"
+            placeholder="Your name"
+            required="required"
+            value={this.state.name}
+            onChange={this.onChange}
+          />
 
-        // Call API
-        this.props.create(this.state)
-            .then(response => {
-                this.setState({
-                    name: '',
-                    thought: '',
-                })
+          <br/><br/>
 
-                this.props.messageShow('Thought created successfully.')
-            })
-            .catch(error => {
-                this.props.messageShow('Error creating thought. Please try again.')
-            })
-    }
+          {/* Thought */}
+          <textarea
+            name="thought"
+            placeholder="Your thought"
+            required="required"
+            value={this.state.thought}
+            onChange={this.onChange}
+          />
 
-    render() {
-        return(
-            <div>
-                <h1>Thought Create</h1>
+          <br/><br/>
 
-                <p>
-                    <Link to={ routes.thoughts.list }>Back</Link>
-                </p>
-
-                {/* Form */}
-                <form onSubmit={ this.submit }>
-                    {/* Name */}
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Your name"
-                        required="required"
-                        value={ this.state.name }
-                        onChange={ this.onChange }
-                    />
-
-                    <br /><br />
-
-                    {/* Thought */}
-                    <textarea
-                        name="thought"
-                        placeholder="Your thought"
-                        required="required"
-                        value={ this.state.thought }
-                        onChange={ this.onChange }
-                    />
-
-                    <br /><br />
-
-                    {/* Submit */}
-                    <button type="submit">Save</button>
-                </form>
-            </div>
-        )
-    }
+          {/* Submit */}
+          <button type="submit">Save</button>
+        </form>
+      </div>
+    )
+  }
 }
 
 // Component Properties
 Create.propTypes = {
-    create: PropTypes.func.isRequired,
-    messageShow: PropTypes.func.isRequired,
-    messageHide: PropTypes.func.isRequired
+  create: PropTypes.func.isRequired,
+  messageShow: PropTypes.func.isRequired,
+  messageHide: PropTypes.func.isRequired
 }
 
-export default connect(null, { create, messageShow, messageHide })(Create)
+export default connect(null, {create, messageShow, messageHide})(Create)

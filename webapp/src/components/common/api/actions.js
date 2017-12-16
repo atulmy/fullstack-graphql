@@ -6,17 +6,17 @@ export const MESSAGE_HIDE = 'COMMON_MESSAGE_HIDE'
 
 // Actions
 export function menuShow() {
-    return { type: MENU_SHOW }
+  return {type: MENU_SHOW}
 }
 
 export function menuHide() {
-    return { type: MENU_HIDE }
+  return {type: MENU_HIDE}
 }
 
 export function messageShow(message) {
-    return { type: MESSAGE_SHOW, message }
+  return {type: MESSAGE_SHOW, message}
 }
 
 export function messageHide() {
-    return { type: MESSAGE_HIDE }
+  return {type: MESSAGE_HIDE}
 }

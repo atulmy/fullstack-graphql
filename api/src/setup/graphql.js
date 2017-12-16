@@ -6,13 +6,13 @@ import config from '../config/config.json'
 import schema from '../schema'
 
 // Setup GraphQL
-export default function(server) {
-    console.info('SETUP - GraphQL...')
+export default function (server) {
+  console.info('SETUP - GraphQL...')
 
-    // API (GraphQL on route `/api`)
-    server.use(config.graphqlEndpoint, graphqlHTTP(() => ({
-        schema,
-        graphiql: config.graphql.ide,
-        pretty: config.graphql.pretty
-    })))
+  // API (GraphQL on route `/api`)
+  server.use(config.graphqlEndpoint, graphqlHTTP(() => ({
+    schema,
+    graphiql: config.graphql.ide,
+    pretty: config.graphql.pretty
+  })))
 }
