@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.17.1",
+    "axios": "^0.18.0",
     "jwt-decode": "^2.2.0",
     "prop-types": "^15.6.0",
     "react": "16.2.0",
