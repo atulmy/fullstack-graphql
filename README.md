@@ -224,7 +224,7 @@ Reddit:
 [NodeJS](https://www.reddit.com/r/node/comments/7965fy/simple_fullstack_graphql_application_built_with/) &bull; [ReactJS](https://www.reddit.com/r/reactjs/comments/78mtln/simple_fullstack_graphql_application_with_react/) &bull; [GraphQL](https://www.reddit.com/r/graphql/comments/786vpj/simple_fullstack_graphql_application/)
 
 ## ⭐ Showcase
-Following projects have been buit with or inspired from [fullstack-graphql](https://github.com/atulmy/fullstack-graphql/edit/master/README.md)
+Following projects have been buit with or inspired from [fullstack-graphql](https://github.com/atulmy/fullstack-graphql/)
 - [Crate - Get monthly subscription of trendy clothes and accessories](https://github.com/atulmy/crate)
 - Would really appreciate if you add your project to this list by sending a PR
 
