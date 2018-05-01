@@ -223,12 +223,16 @@ Facebook Groups:
 Reddit:
 [NodeJS](https://www.reddit.com/r/node/comments/7965fy/simple_fullstack_graphql_application_built_with/) &bull; [ReactJS](https://www.reddit.com/r/reactjs/comments/78mtln/simple_fullstack_graphql_application_with_react/) &bull; [GraphQL](https://www.reddit.com/r/graphql/comments/786vpj/simple_fullstack_graphql_application/)
 
-## 🎩 Authors
-Atul Yadav - [GitHub](https://github.com/atulmy) &bull; [Twitter](https://twitter.com/atulmy)
+## ⭐ Showcase
+Following projects have been built with or inspired from [fullstack-graphql](https://github.com/atulmy/fullstack-graphql/)
+- [Crate - Get monthly subscription of trendy clothes and accessories](https://github.com/atulmy/crate)
+- Would really appreciate if you add your project to this list by sending a PR
 
-Nattatorn Yucharoen - [GitHub](https://github.com/nattatorn-dev)
+## 🎩 Authors
+- Atul Yadav - [GitHub](https://github.com/atulmy) &bull; [Twitter](https://twitter.com/atulmy) &bull; [LinkedIn](https://www.linkedin.com/in/atulmy/)
+- Nattatorn Yucharoen - [GitHub](https://github.com/nattatorn-dev)
 
 ## 📜 License
-Copyright (c) 2017 Atul Yadav http://github.com/atulmy
+Copyright (c) 2017-18 Atul Yadav http://github.com/atulmy
 
 The MIT License (http://www.opensource.org/licenses/mit-license.php)
