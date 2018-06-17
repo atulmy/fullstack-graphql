@@ -225,7 +225,8 @@ Reddit:
 
 ## ⭐ Showcase
 Following projects have been built with or inspired from [fullstack-graphql](https://github.com/atulmy/fullstack-graphql/)
-- [Crate - Get monthly subscription of trendy clothes and accessories](https://github.com/atulmy/crate)
+- Crate - Get monthly subscription of trendy clothes and accessories - [GitHub](https://github.com/atulmy/crate)
+- HIRESMART - Application to streamline hiring process - [GitHub](https://github.com/atulmy/hire-smart)
 - Would really appreciate if you add your project to this list by sending a PR
 
 ## 🎩 Authors
