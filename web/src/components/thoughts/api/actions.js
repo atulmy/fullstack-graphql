@@ -1,9 +1,9 @@
 // Imports
 import axios from 'axios'
+import queryBuilder from 'gql-query-builder'
 
 // App Imports
 import {routesApi} from '../../../setup/routes'
-import {queryBuilder} from '../../../setup/helpers'
 
 // Actions Types
 export const THOUGHTS_GET_LIST_REQUEST = 'THOUGHTS/GET_LIST_REQUEST'
