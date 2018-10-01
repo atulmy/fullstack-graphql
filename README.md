@@ -19,12 +19,12 @@ Written in ES6 using Babel + Webpack.
 ## ▶️ Running
 - Clone repo `git clone git@github.com:atulmy/fullstack-graphql.git fullstack-graphql`
 - Install NPM modules API `cd api` and `npm install`
-- Install NPM modules Webapp `cd webapp` and `npm install`
+- Install NPM modules Webapp `cd web` and `npm install`
 - Modify `/api/src/config/database.json` for database credentials
 - Modify `/api/src/config/config.json` for API port (optional)
-- Modify `/webapp/.env` for webapp port (optional)
+- Modify `/web/.env` for web port (optional)
 - Run API `cd api` and `npm start`, browse GraphiQL at http://localhost:3000/
-- Run Webapp `cd webapp` and `npm start`, browse webapp at http://localhost:8000/
+- Run Webapp `cd web` and `npm start`, browse web at http://localhost:8000/
 
 ### Sample API logs
 ```
@@ -56,7 +56,7 @@ Video: [MOV](http://atulmy.com/atulmy.com/attachments/images/fullstack-graphql.m
       │   │
       │   └── package.json
       │
-      ├── webapp (example.com)
+      ├── web (example.com)
       │   ├── public
       │   ├── src
       │   │   ├── components
@@ -80,19 +80,19 @@ Video: [MOV](http://atulmy.com/atulmy.com/attachments/images/fullstack-graphql.m
 
 ### Webapp
 - Adding new Module (Eg: Users):
-  - Create folder `users` under `/webapp/src/components/`
-  - Create your Container and Resusable components under `/webapp/src/components/users`
-  - Create `api` folder under `/webapp/src/components/users`
-  - Add `actions.js` where all your Redux Action Types and Actions will reside (refer `/webapp/src/components/thoughts/api/actions.js`)
-  - Add `state.js` where all your respective Reducers will recide (refer `/webapp/src/components/thoughts/api/state.js`)
-  - Import the module state in `/webapp/src/setup/store.js` to make it avaliable to the app
-  - Encapsulate all your User related code in `/webapp/src/components/users`
+  - Create folder `users` under `/web/src/components/`
+  - Create your Container and Resusable components under `/web/src/components/users`
+  - Create `api` folder under `/web/src/components/users`
+  - Add `actions.js` where all your Redux Action Types and Actions will reside (refer `/web/src/components/thoughts/api/actions.js`)
+  - Add `state.js` where all your respective Reducers will recide (refer `/web/src/components/thoughts/api/state.js`)
+  - Import the module state in `/web/src/setup/store.js` to make it avaliable to the app
+  - Encapsulate all your User related code in `/web/src/components/users`
 - Adding new Route (Eg: `/users`):
-  - Add a new entry to `routes` object in `/webapp/src/setup/routes.js` (eg `user: { list: '/list' }`)
-  - Edit `/webapp/src/components/App.js` and add the route entry
+  - Add a new entry to `routes` object in `/web/src/setup/routes.js` (eg `user: { list: '/list' }`)
+  - Edit `/web/src/components/App.js` and add the route entry
   
 ## Sample GraphQL Queries
-These queries are generated on client side using `queryBuilder()` helper defined in `/webapp/src/setup/helpers.js`
+These queries are generated on client side using `queryBuilder()` helper defined in `/web/src/setup/helpers.js`
 
 <table width="100%" style="width: 100%">
     <tbody>
