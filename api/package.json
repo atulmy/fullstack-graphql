@@ -14,7 +14,7 @@
     "@babel/node": "7.0.0",
     "@babel/preset-env": "7.1.0",
     "babel-loader": "8.0.4",
-    "nodemon": "1.18.4"
+    "nodemon": "1.18.5"
   },
   "dependencies": {
     "bcrypt": "^3.0.0",
@@ -22,12 +22,12 @@
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
     "express": "5.0.0-alpha.6",
-    "express-graphql": "0.6.12",
+    "express-graphql": "0.7.1",
     "graphql": "14.0.2",
     "jsonwebtoken": "8.3.0",
     "morgan": "1.9.1",
-    "multer": "1.4.0",
-    "mysql2": "1.6.1",
-    "sequelize": "4.39.0"
+    "multer": "1.4.1",
+    "mysql2": "1.6.2",
+    "sequelize": "4.41.0"
   }
 }

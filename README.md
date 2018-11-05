@@ -23,8 +23,8 @@ Written in ES6 using Babel + Webpack.
 - Modify `/api/src/config/database.json` for database credentials
 - Modify `/api/src/config/config.json` for API port (optional)
 - Modify `/web/.env` for web port (optional)
-- Run API `cd api` and `npm start`, browse GraphiQL at http://localhost:3000/
-- Run Webapp `cd web` and `npm start`, browse web at http://localhost:8000/
+- Run API `cd api` and `npm start`, browse GraphiQL at http://localhost:8000/
+- Run Webapp `cd web` and `npm start`, browse web at http://localhost:3000/
 
 ### Sample API logs
 ```
