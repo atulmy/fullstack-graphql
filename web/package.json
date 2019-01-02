@@ -4,18 +4,18 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
-    "gql-query-builder": "1.0.5",
+    "gql-query-builder": "1.0.6",
     "jwt-decode": "^2.2.0",
     "prop-types": "^15.6.0",
-    "react": "16.6.0",
-    "react-dom": "16.6.0",
-    "react-redux": "^5.0.6",
+    "react": "16.7.0",
+    "react-dom": "16.7.0",
+    "react-redux": "^6.0.0",
     "react-router-dom": "^4.2.2",
     "redux": "^4.0.0",
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "react-scripts": "2.1.1"
+    "react-scripts": "2.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
