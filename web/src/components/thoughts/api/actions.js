@@ -55,7 +55,7 @@ export function get(id, isLoading = true) {
     return axios.post(routesApi, queryBuilder({
       type: 'query',
       operation: 'thought',
-      data: {id: parseInt(id, 10)},
+      variables: {id: parseInt(id, 10)},
       fields: ['id', 'name', 'thought']
     }))
       .then((response) => {

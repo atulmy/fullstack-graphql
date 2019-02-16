@@ -32,7 +32,7 @@ class View extends Component {
             <Loading message="loading thought details..."/>
             :
             (
-              this.props.thought.item.id > 0
+              this.props.thought.item && this.props.thought.item.id > 0
                 ?
                 <div>
                   <h1>"{this.props.thought.item.thought}"</h1>
