@@ -75,15 +75,15 @@ export function get(id, isLoading = true) {
 }
 
 // Create thought
-export function create(data) {
+export function create(variables) {
   return dispatch => {
-    return axios.post(routesApi, queryBuilder({type: 'mutation', operation: 'thoughtCreate', data, fields: ['id']}))
+    return axios.post(routesApi, queryBuilder({type: 'mutation', operation: 'thoughtCreate', variables, fields: ['id']}))
   }
 }
 
 // Remove thought
-export function remove(data) {
+export function remove(variables) {
   return dispatch => {
-    return axios.post(routesApi, queryBuilder({type: 'mutation', operation: 'thoughtRemove', data, fields: ['id']}))
+    return axios.post(routesApi, queryBuilder({type: 'mutation', operation: 'thoughtRemove', variables, fields: ['id']}))
   }
 }

@@ -13,6 +13,8 @@ export async function getAll() {
 
 // Create thought
 export async function create(parentValue, { name, thought }) {
+  console.log(name)
+  console.log(thought)
   return await models.Thought.create({ name, thought })
 }
 
