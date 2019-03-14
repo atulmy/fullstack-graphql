@@ -1,6 +1,6 @@
 // Imports
 import axios from 'axios'
-import queryBuilder from 'gql-query-builder'
+import { query, mutation } from 'gql-query-builder'
 
 // App Imports
 import {routesApi} from '../../../setup/routes'
@@ -23,7 +23,7 @@ export function getList(isLoading = true) {
       isLoading
     })
 
-    return axios.post(routesApi, queryBuilder({
+    return axios.post(routesApi, query({
       type: 'query',
       operation: 'thoughts',
       fields: ['id', 'name', 'thought']
@@ -52,7 +52,7 @@ export function get(id, isLoading = true) {
       isLoading
     })
 
-    return axios.post(routesApi, queryBuilder({
+    return axios.post(routesApi, query({
       type: 'query',
       operation: 'thought',
       variables: {id: parseInt(id, 10)},
@@ -77,13 +77,13 @@ export function get(id, isLoading = true) {
 // Create thought
 export function create(variables) {
   return dispatch => {
-    return axios.post(routesApi, queryBuilder({type: 'mutation', operation: 'thoughtCreate', variables, fields: ['id']}))
+    return axios.post(routesApi, mutation({type: 'mutation', operation: 'thoughtCreate', variables, fields: ['id']}))
   }
 }
 
 // Remove thought
 export function remove(variables) {
   return dispatch => {
-    return axios.post(routesApi, queryBuilder({type: 'mutation', operation: 'thoughtRemove', variables, fields: ['id']}))
+    return axios.post(routesApi, mutation({type: 'mutation', operation: 'thoughtRemove', variables, fields: ['id']}))
   }
 }
