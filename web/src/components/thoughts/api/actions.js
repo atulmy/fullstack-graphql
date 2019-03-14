@@ -24,7 +24,6 @@ export function getList(isLoading = true) {
     })
 
     return axios.post(routesApi, query({
-      type: 'query',
       operation: 'thoughts',
       fields: ['id', 'name', 'thought']
     }))
@@ -53,7 +52,6 @@ export function get(id, isLoading = true) {
     })
 
     return axios.post(routesApi, query({
-      type: 'query',
       operation: 'thought',
       variables: {id: parseInt(id, 10)},
       fields: ['id', 'name', 'thought']
@@ -77,13 +75,20 @@ export function get(id, isLoading = true) {
 // Create thought
 export function create(variables) {
   return dispatch => {
-    return axios.post(routesApi, mutation({type: 'mutation', operation: 'thoughtCreate', variables, fields: ['id']}))
+    return axios.post(routesApi, mutation({
+      operation: 'thoughtCreate',
+      variables, fields: ['id']
+    }))
   }
 }
 
 // Remove thought
 export function remove(variables) {
   return dispatch => {
-    return axios.post(routesApi, mutation({type: 'mutation', operation: 'thoughtRemove', variables, fields: ['id']}))
+    return axios.post(routesApi, mutation({
+      operation: 'thoughtRemove',
+      variables,
+      fields: ['id']
+    }))
   }
 }
