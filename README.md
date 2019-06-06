@@ -1,4 +1,4 @@
-![logos](http://atulmy.com/atulmy.com/attachments/images/dev-logos.png)
+![fullstack-graphql](https://raw.githubusercontent.com/atulmy/atulmy.github.io/master/images/mix/dev-logos.png)
 
 # Fullstack GraphQL
 
