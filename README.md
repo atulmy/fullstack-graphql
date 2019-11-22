@@ -236,8 +236,10 @@ Following projects have been built with or inspired from [fullstack-graphql](htt
 - Atul Yadav - [GitHub](https://github.com/atulmy) &bull; [Twitter](https://twitter.com/atulmy) &bull; [LinkedIn](https://www.linkedin.com/in/atulmy/)
 - Nattatorn Yucharoen - [GitHub](https://github.com/nattatorn-dev)
 
-## 👏 Support
-[![Become a Patreon](https://raw.githubusercontent.com/atulmy/atulmy.github.io/master/images/mix/patreon.png?v=1)](https://www.patreon.com/atulmy)
+## 👏 Donate
+If you liked this project, please donate to support it ❤️
+
+[![Donate via PayPal](https://raw.githubusercontent.com/atulmy/atulmy.github.io/master/images/mix/paypal-me-smaller.png)](http://paypal.me/atulmy)
 
 ## 📜 License
 Copyright (c) 2017-18 Atul Yadav http://github.com/atulmy
