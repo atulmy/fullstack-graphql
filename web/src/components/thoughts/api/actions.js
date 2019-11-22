@@ -74,21 +74,17 @@ export function get(id, isLoading = true) {
 
 // Create thought
 export function create(variables) {
-  return dispatch => {
-    return axios.post(routesApi, mutation({
-      operation: 'thoughtCreate',
-      variables, fields: ['id']
-    }))
-  }
+  return axios.post(routesApi, mutation({
+    operation: 'thoughtCreate',
+    variables, fields: ['id']
+  }))
 }
 
 // Remove thought
 export function remove(variables) {
-  return dispatch => {
-    return axios.post(routesApi, mutation({
-      operation: 'thoughtRemove',
-      variables,
-      fields: ['id']
-    }))
-  }
+  return axios.post(routesApi, mutation({
+    operation: 'thoughtRemove',
+    variables,
+    fields: ['id']
+  }))
 }

@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "sgroot",
-    "password": "null",
+    "username": "root",
+    "password": null,
     "database": "graphql",
     "host": "127.0.0.1",
     "dialect": "mysql"

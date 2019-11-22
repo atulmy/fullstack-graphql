@@ -1,65 +1,57 @@
 // Imports
-import React, {Component} from 'react'
-import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import React from 'react'
+import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 // App Imports
 import {routes} from '../../setup/routes'
-import {remove, getList} from './api/actions'
+import { remove, getList } from './api/actions'
 import {messageShow, messageHide} from '../common/api/actions'
 
 // Component
-class Item extends Component {
+const Item = ({ thought: { id, name, thought } }) => {
+  const dispatch = useDispatch()
 
-  remove = (id) => {
+  // on remove
+  const onRemove = id => async () => {
     let check = window.confirm('Are you sure you want to delete this thought?')
     if (check) {
-      this.props.messageHide()
+      dispatch(messageHide())
 
-      this.props.messageShow('Deleting thought, please wait...')
+      dispatch(messageShow('Deleting thought, please wait...'))
 
-      this.props.remove({id})
-        .then(response => {
+      try {
+
+        const { data } = await remove({ id })
+
+        if(data) {
           // Refresh thoughts list
-          this.props.getList()
+          dispatch(getList())
 
-          this.props.messageShow('Thought deleted successfully.')
-        })
-        .catch(error => {
-          this.props.messageShow('Error deleting thought. Please try again.')
-        })
+          dispatch(messageShow('Thought deleted successfully.'))
+        }
+      } catch (error) {
+        dispatch(messageShow(`Error ${ error.message }. Please try again.`))
+      }
     }
   }
 
-  render() {
-    const {id, name, thought} = this.props.thought
+  // render
+  return (
+    <div>
+      <p>{ thought } - { name }</p>
 
-    return (
-      <div>
-        {thought} - {name}
+      {' '}
 
-        &nbsp;&nbsp;
+      <Link to={routes.thoughts.view(id)}>
+        <button>View</button>
+      </Link>
 
-        <Link to={routes.thoughts.view(id)}>
-          <button>View</button>
-        </Link>
+      {' '}
 
-        &nbsp;
-
-        <button onClick={this.remove.bind(this, id)}>Delete</button>
-      </div>
-    )
-  }
+      <button onClick={onRemove(id)}>Delete</button>
+    </div>
+  )
 }
 
-// Component Properties
-Item.propTypes = {
-  thought: PropTypes.object.isRequired,
-  remove: PropTypes.func.isRequired,
-  getList: PropTypes.func.isRequired,
-  messageShow: PropTypes.func.isRequired,
-  messageHide: PropTypes.func.isRequired
-}
-
-export default connect(null, {remove, getList, messageShow, messageHide})(Item)
+export default Item

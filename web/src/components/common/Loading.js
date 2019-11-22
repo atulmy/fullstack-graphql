@@ -2,7 +2,7 @@
 import React from 'react'
 
 // Component
-const Loading = (props) => (
+const Loading = props => (
   <p style={{color: 'grey'}}>{props.message ? props.message : 'loading'}</p>
 )
 

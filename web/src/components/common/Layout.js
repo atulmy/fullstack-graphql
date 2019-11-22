@@ -1,7 +1,6 @@
 // Imports
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import PropTypes from 'prop-types'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 // App Imports
 import {renderIf} from '../../setup/helpers'
@@ -9,68 +8,53 @@ import {menuShow, menuHide, messageHide} from './api/actions'
 import Menu from './Menu'
 
 // Component
-class Layout extends Component {
+const Layout = ({ children }) => {
+  // state
+  const { menuIsVisible, message } = useSelector(state => state.common)
+  const dispatch = useDispatch()
 
-  render() {
-    const {children} = this.props
+  return (
+    <div>
+      {/* Header */}
+      <header>
+        {/* Menu */}
+        { menuIsVisible && <Menu /> }
 
-    return (
-      <div>
-        {/* Header */}
-        <header>
-          {renderIf(this.props.common.menuIsVisible, () => (
-            <Menu/>
-          ))}
+        {/* Header visible toggle button */}
+        {
+          menuIsVisible
+            ? <button onClick={() => dispatch(menuHide())}>Hide Menu</button>
+            : <button onClick={() => dispatch(menuShow())}>Show Menu</button>
+        }
+      </header>
 
-          {/* Header visible toggle button */}
+      <hr/>
+
+      {/* Messages */}
+      {
+        message.open &&
+        <div>
           {
-            this.props.common.menuIsVisible
-              ?
-              <button onClick={this.props.menuHide}>Hide Menu</button>
-              :
-              <button onClick={this.props.menuShow}>Show Menu</button>
-          }
-        </header>
-
-        <hr/>
-
-        {/* Message */}
-        {renderIf(this.props.common.message.open, () => (
-          <div>
-            {this.props.common.message.text.map((text, i) => (
+            message.text.map((text, i) => (
               <p key={i}>
                 <mark>{text}</mark>
               </p>
-            ))}
+            ))
+          }
 
-            <button onClick={this.props.messageHide}>Hide Messages</button>
+          <button onClick={() => dispatch(messageHide())}>Hide Messages</button>
 
-            <hr/>
-          </div>
-        ))}
+          <hr/>
+        </div>
+      }
 
-        {/* Page content */}
-        <section>
-          {children}
-        </section>
-      </div>
-    )
-  }
+      {/* Page content */}
+      <section>
+        { children }
+      </section>
+    </div>
+  )
 }
 
-// Component Properties
-Layout.propTypes = {
-  common: PropTypes.object.isRequired,
-  menuShow: PropTypes.func.isRequired,
-  menuHide: PropTypes.func.isRequired,
-  messageHide: PropTypes.func.isRequired
-}
 
-// Component State
-function commonState(state) {
-  return {
-    common: state.common
-  }
-}
-
-export default connect(commonState, {menuShow, menuHide, messageHide})(Layout)
+export default Layout

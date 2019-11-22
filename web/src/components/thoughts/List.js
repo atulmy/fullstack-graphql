@@ -1,67 +1,52 @@
 // Imports
-import React, {Component} from 'react'
-import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 // App Imports
-import {routes} from '../../setup/routes'
-import {getList} from './api/actions'
+import { routes } from '../../setup/routes'
+import { getList } from './api/actions'
 import Loading from '../common/Loading'
 import Item from './Item'
 
 // Component
-class List extends Component {
+const List = () => {
+  // state
+  const { isLoading, list } = useSelector(state => state.thoughts)
+  const dispatch = useDispatch()
 
-  componentDidMount() {
-    this.props.getList()
-  }
+  // on mount/update
+  useEffect(() => {
+    dispatch(getList())
+  }, [])
 
-  render() {
-    return (
-      <div>
-        <h1>Thoughts</h1>
+  // render
+  return (
+    <div>
+      <h1>Thoughts</h1>
 
-        <p>
-          <Link to={routes.thoughts.create}>Create</Link>
-        </p>
+      <p>
+        <Link to={routes.thoughts.create}>Create</Link>
+      </p>
 
-        {/* List thoughts */}
-        {
-          this.props.thoughts.isLoading
-            ?
-            <Loading message="loading thoughts..."/>
-            :
-            (
-              this.props.thoughts.list.length > 0
-                ?
-                <ul>
-                  {this.props.thoughts.list.map(thought => (
+      {/* List thoughts */}
+      {
+        isLoading
+          ? <Loading message="loading thoughts..."/>
+          : list.length > 0
+            ? <ul>
+                {
+                  list.map(thought => (
                     <li key={thought.id}>
-                      <Item thought={thought}/>
+                      <Item thought={thought} />
                     </li>
-                  ))}
-                </ul>
-                :
-                <p>No thoughts to show.</p>
-            )
-        }
-      </div>
-    )
-  }
+                  ))
+                }
+              </ul>
+            : <p>No thoughts to show.</p>
+      }
+    </div>
+  )
 }
 
-// Component Properties
-List.propTypes = {
-  thoughts: PropTypes.object.isRequired,
-  getList: PropTypes.func.isRequired,
-}
-
-// Component State
-function thoughtsState(state) {
-  return {
-    thoughts: state.thoughts
-  }
-}
-
-export default connect(thoughtsState, {getList})(List)
+export default List

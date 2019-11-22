@@ -1,9 +1,9 @@
 // Imports
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 // App Imports
-import {routes} from '../../setup/routes'
+import { routes } from '../../setup/routes'
 
 // Component
 const Menu = () => (
