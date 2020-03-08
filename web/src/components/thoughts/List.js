@@ -18,7 +18,7 @@ const List = () => {
   // on mount/update
   useEffect(() => {
     dispatch(getList())
-  }, [])
+  }, [dispatch])
 
   // render
   return (

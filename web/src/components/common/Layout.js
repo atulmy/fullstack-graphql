@@ -3,7 +3,6 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 // App Imports
-import {renderIf} from '../../setup/helpers'
 import {menuShow, menuHide, messageHide} from './api/actions'
 import Menu from './Menu'
 

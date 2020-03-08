@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 // App Imports
 import { routes } from '../../setup/routes'
-import { get, getList } from './api/actions'
+import { get } from './api/actions'
 import Loading from '../common/Loading'
 
 // Component
@@ -17,7 +17,7 @@ const View = ({ match: { params: { id } } }) => {
   // on mount/update
   useEffect(() => {
     dispatch(get(id))
-  }, [])
+  }, [dispatch, id])
 
   // render
   return (
