@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.2",
-    "gql-query-builder": "3.2.0",
+    "gql-query-builder": "3.3.0",
     "jwt-decode": "^2.2.0",
     "prop-types": "^15.7.2",
     "react": "16.13.1",
